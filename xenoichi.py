@@ -4,10 +4,6 @@ import highrise, random, asyncio, json
 from emotes import Emotes, Dance_Floor
 from pickuplines import PUL
 import time
-from flask import Flask
-from keep_alive import keep_alive
-keep_alive()
-from threading import Thread
 
 class xenoichi(BaseBot):
     def __init__(self):
