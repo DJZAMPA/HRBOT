@@ -67,29 +67,6 @@ class xenoichi(BaseBot):
                 except Exception as e:
                         print(f"An error occurred: {e}" )               
 
-        if message == "-dress90":
-          shirt = ["shirt-n_starteritems2019raglanwhite"]
-          pant = ["pants-n_starteritems2019cuffedjeansblue"]
-          item_top = random.choice(shirt)
-          item_bottom = random.choice(pant)
-          xox = await self.highrise.set_outfit(outfit=[
-                  Item(type='clothing', amount=1, id='body-flesh', account_bound=False, active_palette=1),
-                  Item(type='clothing', amount=1, id=item_top, account_bound=False, active_palette=-1),
-                  Item(type='clothing', amount=1, id=item_bottom, account_bound=False, active_palette=-1),
-                  Item(type='clothing', amount=4, id='hair_back-m_09', account_bound=False, active_palette=4),
-                  Item(type='clothing', amount=1, id='nose-n_03_b', account_bound=False, active_palette=-1),
-
-                  Item(type='clothing', amount=4, id='hair_front-m_19', account_bound=False, active_palette=4),
-                  Item(type='clothing', amount=1, id='watch-n_room32019blackwatch', account_bound=False, active_palette=-1),
-                  Item(type='clothing', amount=1, id='freckle-n_basic2018freckle22', account_bound=False, active_palette=-1),
-                  Item(type='clothing', amount=1, id='shoes-n_room12019sneakersblack', account_bound=False, active_palette=-1),
-                  Item(type='clothing', amount=1, id='mouth-n_18', account_bound=False, active_palette=0),
-                  Item(type='clothing', amount=1, id='eye-m_12b', account_bound=False, active_palette=0),
-                  Item(type='clothing', amount=1, id='eyebrow-n_06', account_bound=False, active_palette=-1),
-
-          ])
-          await self.highrise.chat(f"{xox}")
-
             
             if message.startswith("/help"):
                 await self.highrise.chat(f"\nUser Commands:\n/emote\n/stop-emote\n/about\n\nAdmin Commands:\n/tip\n/addvip\n/removevip\n/vippos\n/botpos\n/djpos\n/televip\n/teledj\n/pos1\n/pos2\n/create\n/clear-df\n/clear-vip\n/emall\n/plines")
