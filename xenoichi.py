@@ -67,9 +67,9 @@ class xenoichi(BaseBot):
                 except Exception as e:
                         print(f"An error occurred: {e}" )               
 
+            
             if message.startswith("/help"):
-                await self.highrise.chat(f"JEJSVS")
-
+                await self.highrise.chat(f"\nUser Commands:\n/emote\n/stop-emote\n/about\n\nAdmin Commands:\n/tip\n/addvip\n/removevip\n/vippos\n/botpos\n/djpos\n/televip\n/teledj\n/pos1\n/pos2\n/create\n/clear-df\n/clear-vip\n/emall\n/plines")
 
         
           
