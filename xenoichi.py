@@ -71,6 +71,146 @@ class xenoichi(BaseBot):
             if message.startswith("/help"):
                 await self.highrise.chat(f"\nUser Commands:\n/emote\n/stop-emote\n/about\n\nAdmin Commands:\n/tip\n/addvip\n/removevip\n/vippos\n/botpos\n/djpos\n/televip\n/teledj\n/pos1\n/pos2\n/create\n/clear-df\n/clear-vip\n/emall\n/plines")
 
+            elif message.lower().startswith("/tip-all"):
+
+                try:
+
+                    parts = message.split(" ")
+                    if len(parts) != 2:
+                        await self.highrise.chat("Invalid command. Usage: /tip-all {tip amount}.")
+                        return
+
+                    tip_amount_str = parts[1]
+
+                    try:
+
+                        tip_amount = int(tip_amount_str)
+
+                        if tip_amount in (1, 5, 10, 50, 100, 500, 1000, 5000, 10000):
+
+                            if tip_amount == 1:
+                                tip = "gold_bar_1"
+                            elif tip_amount == 5:
+                                tip = "gold_bar_5"
+                            elif tip_amount == 10:
+                                tip = "gold_bar_10"
+                            elif tip_amount == 50:
+                                tip = "gold_bar_50"
+                            elif tip_amount == 100:
+                                tip = "gold_bar_100"
+                            elif tip_amount == 500:
+                                tip = "gold_bar_500"
+                            elif tip_amount == 1000:
+                                tip = "gold_bar_1000"
+                            elif tip_amount == 5000:
+                                tip = "gold_bar_5000"
+                            elif tip_amount == 10000:
+                                tip = "gold_bar_10000"
+
+                        else:
+                            raise ValueError("Invalid tip amount.")
+
+                    except ValueError:
+                        await self.highrise.chat("Invalid tip amount. Please provide a valid amount.")
+                        return
+
+                    bot_wallet = await self.highrise.get_wallet()
+                    bot_amount = bot_wallet.content[0].amount
+
+                    user_in_room = await self.get_users_in_room()
+
+                    if user_in_room:
+
+                        await self.highrise.chat(f"\nTipping all Users {tip_amount} gold. Please wait.")
+                        await asyncio.sleep(2)
+
+                        for user_id in user_in_room:
+
+                            if bot_amount < tip_amount:
+                                await self.highrise.chat("Not enough funds in bank.")
+                                return
+
+                            if user_id.id != self.highrise.my_id:
+                                await self.highrise.tip_user(user_id.id, tip)
+                                await self.highrise.chat(f"\n@{user_id.username} is tipped {tip_amount} gold!")
+                                await asyncio.sleep(1)
+
+                        await self.highrise.chat(f"\nTipping is done.")
+
+                except Exception as e:
+                    print(f"error tipping all: {e}")
+
+            elif message.lower().startswith("/tip"):
+
+                try:
+                    parts = message.split(" ")
+                    if len(parts) != 3:
+                        await self.highrise.chat("Invalid command. Usage: /tip @{username} {tip amount}.")
+                        return
+
+                    target_username = parts[1]
+                    if not target_username.startswith('@'):
+                        await self.highrise.chat("Invalid username format. Use '@{username}'.")
+                        return
+
+                    target_username = target_username[1:]
+
+                    tip_amount_str = parts[2]
+
+                    target = await self.get_target_user_in_room(target_username)
+
+                    if not target:
+                        await self.highrise.chat(f"{target_username} is not in the room.")
+                        return
+
+                    try:
+
+                        tip_amount = int(tip_amount_str)
+
+                        if tip_amount in (1, 5, 10, 50, 100, 500, 1000, 5000, 10000):
+
+                            if tip_amount == 1:
+                                tip = "gold_bar_1"
+                            elif tip_amount == 5:
+                                tip = "gold_bar_5"
+                            elif tip_amount == 10:
+                                tip = "gold_bar_10"
+                            elif tip_amount == 50:
+                                tip = "gold_bar_50"
+                            elif tip_amount == 100:
+                                tip = "gold_bar_100"
+                            elif tip_amount == 500:
+                                tip = "gold_bar_500"
+                            elif tip_amount == 1000:
+                                tip = "gold_bar_1000"
+                            elif tip_amount == 5000:
+                                tip = "gold_bar_5000"
+                            elif tip_amount == 10000:
+                                tip = "gold_bar_10000"
+
+                        else:
+                            raise ValueError("Invalid tip amount.")
+
+                    except ValueError:
+                        await self.highrise.chat("Invalid tip amount. Please provide a valid amount.")
+                        return
+
+                    bot_wallet = await self.highrise.get_wallet()
+                    bot_amount = bot_wallet.content[0].amount
+
+                    if bot_amount < tip_amount:
+                        await self.highrise.chat("Not enough funds in bank.")
+                        return
+
+                    try:
+                        await self.highrise.tip_user(target.id, tip)
+                        await self.highrise.chat(f"{target_username} has been tipped an amount of: {tip_amount} gold.")
+
+                    except Exception as e:
+                        await self.highrise.chat(f"Error tipping {target_username}: {str(e)}")
+                except Exception as e:
+                    await self.highrise.chat(f"Error tipping: {str(e)}")
+
         
           
             elif message.startswith("/addvip"):
