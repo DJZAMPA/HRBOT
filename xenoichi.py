@@ -5,11 +5,9 @@ from emotes import Emotes, Dance_Floor
 from pickuplines import PUL
 import time
 
-class MyBot(BaseBot):
+class xenoichi(BaseBot):
     def __init__(self):
         super().__init__()
-        self.user_data = {}
-        self.admin_list = ["DJ._.ZAMPA"]
 
         self.check_players_task = None
         self.emotes = Emotes
