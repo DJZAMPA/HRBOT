@@ -803,7 +803,6 @@ class xenoichi(BaseBot):
 
     async def on_whisper(self, user: User, message: str):
 
-        if user.username == "DJ._.ZAMPA":
             if message.startswith("/chat"):
 
                 chat_message = message.replace("/chat", "", 1)
