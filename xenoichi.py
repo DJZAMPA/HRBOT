@@ -30,6 +30,8 @@ class xenoichi(BaseBot):
 
         self.plines = None
 
+        self.allowed_username = "DJ._.ZAMPA"
+
     async def on_start(self, session_metadata):
 
         print("Xenbot is armed and ready!")
@@ -44,7 +46,7 @@ class xenoichi(BaseBot):
 
     async def on_chat(self, user: User, message: str) -> None:
 
-        if user.username == "DJ._.ZAMPA" or "JN_JUNGKOOK":
+       
 
               
             if message.startswith("/emall"):
