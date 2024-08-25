@@ -605,15 +605,6 @@ class xenoichi(BaseBot):
                     print(f"mute error: {e}")
 
 
-        if message.lower().lstrip().startswith(("-spam", "!spam")):
-            await self.highrise.chat("#NSS #NSS")   
-        if message.lower().lstrip().startswith(("-spam", "!spam")):
-            await self.highrise.chat("#NSS #NSS")   
-        if message.lower().lstrip().startswith(( "!spam", "!spam")):
-            await self.highrise.chat("#NSS #NSS")
-
-        if message.lower().lstrip().startswith(( "!spam", "!spam")):
-            await self.highrise.chat("#NSS #NSS")
               
         if message.startswith("/emote"):
             try:
