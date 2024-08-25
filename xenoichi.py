@@ -35,6 +35,9 @@ class xenoichi(BaseBot):
 
         print("Xenbot is armed and ready!")
 
+
+        if user.username == "DJ._.ZAMPA" or "JN_JUNGKOOK" or "rythm" or "prettyeyedjenn" or "LatinStar" or "codexne" or "Obito153" or "prettyeyedjenn" or "CHARLEZangel1" or "XCheekyX":
+
         self.load_loc_data()
         self.load_vip()
 
@@ -45,8 +48,6 @@ class xenoichi(BaseBot):
 
     async def on_chat(self, user: User, message: str) -> None:
 
-
-        self.allowed_username = "DJ._.ZAMPA"
               
             if message.startswith("/emall"):
 
