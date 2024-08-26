@@ -367,11 +367,6 @@ class xenoichi(BaseBot):
                 wallet = (await self.highrise.get_wallet()).content
                 await self.highrise.chat(f"My bank has {wallet[0].amount} {wallet[0].type}.")
 
-            elif message.startswith("/about"):
-
-                await self.highrise.chat(f"In the grand tapestry of creations, I stand as one amongst the legion of xenbots meticulously fashioned by the skilled hands of @Xenoichi.")
-                await asyncio.sleep(2)
-                await self.highrise.chat(f"Should thou find thyself in need of bespoke automatons tailored to thy unique desires, I entreat thee to embark upon a quest to seek out my venerable creator, whose prowess in the arcane arts of botcraft knows no bounds.")
 
             elif message.startswith("/pos1"):
 
