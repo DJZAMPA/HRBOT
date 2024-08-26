@@ -348,6 +348,13 @@ class xenoichi(BaseBot):
                 await asyncio.sleep(1)
                 self.save_loc_data()
 
+            elif message.startswith("/downpos"):
+
+                self.down_pos = await self.get_actual_pos(user.id)
+                await self.highrise.chat("down position set!")
+                await asyncio.sleep(1)
+                self.save_loc_data()
+
             elif message.startswith("/djpos"):
 
                 self.dj_pos = await self.get_actual_pos(user.id)
