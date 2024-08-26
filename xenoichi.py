@@ -25,6 +25,7 @@ class xenoichi(BaseBot):
         self.bot_pos = None
         self.vip_pos = None
         self.dj_pos = None
+        self down_pos = None 
 
         self.plines = None
 
