@@ -271,6 +271,28 @@ class xenoichi(BaseBot):
                 except Exception as e:
                     print(f"An error occurred: {e}")
 
+
+            elif message.lower().startswith("/teledown"):
+
+                try:
+
+                    parts = message.split(" ")
+                    if len(parts) != 2:
+                        await self.highrise.chat("Invalid command. Usage: /teledown @{username}.")
+                        return
+
+                    target_username = parts[1]
+                    if not target_username.startswith('@'):
+                        await self.highrise.chat("Invalid username format. Use '@{username}'.")
+                        return
+
+                    target_username = target_username[1:]
+                    await self.teleport_target_user_to_loc(target_username, self.dj_pos)
+
+                except Exception as e:
+                    print(f"error teledown: {e}")
+
+
             elif message.lower().startswith("/teledj"):
 
                 try:
