@@ -949,7 +949,7 @@ class xenoichi(BaseBot):
 
             if user.username in self.vip:
                 await self.highrise.teleport(user.id, self.vip_pos)
-            await self.highrise.chat(f"Welcome to Truth NiteClub Everyone Enjoy Urself & feel free to dance anywhere in here 100g for VIP Access don’t forget to Follow Host & DJ & Tip the Ladies Fellas!!!")
+            await self.highrise.chat(f"Welcome Ladies & Gentz to TRUTH NiteClub drinks are on the house Ladies Always Free Gentz For VIP Access 100g don’t hesitate to bless the TipJar & Gentz Look at all our beautiful Ladies upstairs In VIP definitely Tip our Dancers Follow The Hosts @Lanyo")
             ran = random.randint(1, 73)
             emote_text, emote_time = await self.get_emote_df(ran)
             await self.highrise.send_emote(emote_text, self.highrise.my_id)
