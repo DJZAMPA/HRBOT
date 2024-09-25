@@ -47,7 +47,7 @@ class xenoichi(BaseBot):
 
         if user.username in {"DJ._.ZAMPA", "ROSIE.LO"}:
     # Do something if the username matches
-    print("Welcome, special user!")
+    
  
             if message.startswith("/emall"):
 
