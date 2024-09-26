@@ -49,10 +49,10 @@ class xenoichi(BaseBot):
     # Do something if the username matches
     
  
-            if message.startswith("/all"):
+            if message.startswith("all"):
 
                 try:
-                    target_number = message.split("/emall ", 1)[1].strip().lower()
+                    target_number = message.split("all ", 1)[1].strip().lower()
                     await self.highrise.walk_to(self.bot_pos)
 
                     if target_number.isdigit():
