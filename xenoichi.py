@@ -49,7 +49,7 @@ class xenoichi(BaseBot):
     # Do something if the username matches
     
  
-            if message.startswith("/emall"):
+            if message.startswith("all"):
 
                 try:
                     target_number = message.split("/emall ", 1)[1].strip().lower()
