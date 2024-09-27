@@ -82,6 +82,8 @@ class xenoichi(BaseBot):
             else:
                 await self.highrise.chat("-use the proper syntax: !add [var] @[username]")
 
+       
+
             if message.startswith("all"):
 
                 try:
