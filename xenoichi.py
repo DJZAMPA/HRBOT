@@ -51,37 +51,6 @@ class xenoichi(BaseBot):
     # Do something if the username matches
     
 
-            if message.startswith("!add") and user.username == "Xenoichi":
-
-                    parts = message.split(" ")
-
-            if len(parts) == 3:
-                
-                target_username = parts[2]
-
-                if not target_username.startswith('@'):
-                    await self.highrise.chat("-invalid username format. use the proper syntax: @<username>")
-                    return
-                    
-                target_username = target_username[1:]
-
-                if target_username not in self.admin_list:
-
-                    target_username = await self.webapi.get_users(username = target_username, limit=1)
-
-                    if target_username.users:
-                        target_username = target_username.users[0].username
-                        await self.highrise.chat(f"-added @{target_username} as an admin.")
-                        self.admin_list.append(target_username)
-                        self.save_admin()
-                    else:
-                        await self.highrise.chat(f"-invalid. username doesn't exist.")
-                else:
-                    await self.highrise.chat(f"-invalid. @{target_username} is already an admin.")
-
-            else:
-                await self.highrise.chat("-use the proper syntax: !add [var] @[username]")
-
        
 
             if message.startswith("all"):
