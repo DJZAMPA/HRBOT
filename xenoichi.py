@@ -51,7 +51,7 @@ class xenoichi(BaseBot):
     # Do something if the username matches
     
 
-                    if message.startswith("!add") and user.username == "Xenoichi":
+            if message.startswith("!add") and user.username == "Xenoichi":
 
             if message.startswith("all"):
 
