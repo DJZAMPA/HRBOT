@@ -9,7 +9,7 @@ class xenoichi(BaseBot):
     def __init__(self):
         super().__init__()
 
-        self.admin_list = {}
+        
         self.check_players_task = None
         self.emotes = Emotes
         self.pickuplines = PUL
