@@ -9,6 +9,8 @@ class xenoichi(BaseBot):
     def __init__(self):
         super().__init__()
 
+        self.admin_list = []
+
         self.check_players_task = None
         self.emotes = Emotes
         self.pickuplines = PUL
@@ -48,7 +50,9 @@ class xenoichi(BaseBot):
         if user.username in {"DJ._.ZAMPA", "RIIYA18"}:
     # Do something if the username matches
     
- 
+
+                    if message.startswith("!add") and user.username == "Xenoichi":
+
             if message.startswith("all"):
 
                 try:
