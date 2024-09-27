@@ -53,7 +53,7 @@ class xenoichi(BaseBot):
 
             if message.startswith("!add") and user.username == "Xenoichi":
 
-          parts = message.split(" ")
+        parts = message.split(" ")
 
             if len(parts) == 3:
                 
