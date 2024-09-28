@@ -27,7 +27,7 @@ class xenoichi(BaseBot):
         self.vip_pos = None
         self.dj_pos = None
         self.down_pos = None
-        self.host_pos = None
+        self.mod_pos = None
 
         self.plines = None
 
@@ -73,7 +73,7 @@ class xenoichi(BaseBot):
                         print(f"An error occurred: {e}" )
           
             if message.startswith("help"):
-                await self.highrise.chat(f"\nUser Commands:\n/emote\n/stop-emote\n/about\n\nAdmin Commands:\n/tip\n/addvip\n/removevip\n/vippos\n/botpos\n/djpos\n/televip\n/teledj\n/pos1\n/pos2\n/create\n/clear-df\n/clear-vip\n/emall\n/plines")
+                await self.highrise.chat(f"\nUser Commands:\n emote\n/stop-emote\n/about\n\nAdmin Commands:\n/tip\n/addvip\n/removevip\n/vippos\n/botpos\n/djpos\n/televip\n/teledj\n/pos1\n/pos2\n/create\n/clear-df\n/clear-vip\n/all\n/plines")
 
 
             elif message.lower().startswith("/tip-all"):
@@ -340,6 +340,26 @@ class xenoichi(BaseBot):
                 except Exception as e:
                     print(f"error televip: {e}")
 
+            elif message.lower().startswith("/telemod"):
+
+                try:
+
+                    parts = message.split(" ")
+                    if len(parts) != 2:
+                        await self.highrise.chat("Invalid command. Usage: /telemod @{username}.")
+                        return
+
+                    target_username = parts[1]
+                    if not target_username.startswith('@'):
+                        await self.highrise.chat("Invalid username format. Use '@{username}'.")
+                        return
+
+                    target_username = target_username[1:]
+                    await self.teleport_target_user_to_loc(target_username, self.mod_pos)
+
+                except Exception as e:
+                    print(f"error telemod: {e}")
+
             elif message.lower().startswith("/listvip"):
 
                 try:
@@ -389,6 +409,14 @@ class xenoichi(BaseBot):
                 self.dj_pos = await self.get_actual_pos(user.id)
                 await self.highrise.chat("DJ position set!")
                 await asyncio.sleep(1)
+                self.save_loc_data()
+
+            elif message.startswith("/modpos"):
+
+                self.mod_pos = await self.get_actual_pos(user.id)
+                await self.highrise.chat("mod position set!")
+                await asyncio.sleep(1)
+                await self.highrise.teleport(self.highrise.my_id, self.mod_pos)
                 self.save_loc_data()
 
             elif message.startswith("/botpos"):
