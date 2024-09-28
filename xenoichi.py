@@ -416,8 +416,8 @@ class xenoichi(BaseBot):
                 self.mod_pos = await self.get_actual_pos(user.id)
                 await self.highrise.chat("mod position set!")
                 await asyncio.sleep(1)
-                await self.highrise.teleport(self.highrise.my_id, self.mod_pos)
                 self.save_loc_data()
+
 
             elif message.startswith("/botpos"):
 
