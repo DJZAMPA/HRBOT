@@ -294,7 +294,7 @@ class xenoichi(BaseBot):
                         return
 
                     target_username = target_username[1:]
-                    await self.teleport_target_user_to_loc(target_username, self.dj_pos)
+                    await self.teleport_target_user_to_loc(target_username, self.down_pos)
 
                 except Exception as e:
                     print(f"error teledown: {e}")
