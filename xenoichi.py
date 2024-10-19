@@ -46,7 +46,7 @@ class xenoichi(BaseBot):
     async def on_chat(self, user: User, message: str) -> None:
 
 
-        if user.username in {"DJ._.ZAMPA", "Aguadepanela", "jrogel"}:
+        if user.username in {"DJ._.ZAMPA", "spy__x", "4YAN_"}:
     # Do something if the username matches
     
 
