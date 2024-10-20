@@ -279,13 +279,13 @@ class xenoichi(BaseBot):
                     print(f"An error occurred: {e}")
 
 
-            elif message.lower().startswith("/teledown"):
+            elif message.lower().startswith("/down"):
 
                 try:
 
                     parts = message.split(" ")
                     if len(parts) != 2:
-                        await self.highrise.chat("Invalid command. Usage: /teledown @{username}.")
+                        await self.highrise.chat("Invalid command. Usage: /down @{username}.")
                         return
 
                     target_username = parts[1]
@@ -300,13 +300,13 @@ class xenoichi(BaseBot):
                     print(f"error teledown: {e}")
 
 
-            elif message.lower().startswith("/teledj"):
+            elif message.lower().startswith("/dj"):
 
                 try:
 
                     parts = message.split(" ")
                     if len(parts) != 2:
-                        await self.highrise.chat("Invalid command. Usage: /teledj @{username}.")
+                        await self.highrise.chat("Invalid command. Usage: /dj @{username}.")
                         return
 
                     target_username = parts[1]
@@ -320,13 +320,13 @@ class xenoichi(BaseBot):
                 except Exception as e:
                     print(f"error teledj: {e}")
 
-            elif message.lower().startswith("/televip"):
+            elif message.lower().startswith("/vip"):
 
                 try:
 
                     parts = message.split(" ")
                     if len(parts) != 2:
-                        await self.highrise.chat("Invalid command. Usage: /televip @{username}.")
+                        await self.highrise.chat("Invalid command. Usage: /vip @{username}.")
                         return
 
                     target_username = parts[1]
@@ -340,13 +340,13 @@ class xenoichi(BaseBot):
                 except Exception as e:
                     print(f"error televip: {e}")
 
-            elif message.lower().startswith("/telemod"):
+            elif message.lower().startswith("/mod"):
 
                 try:
 
                     parts = message.split(" ")
                     if len(parts) != 2:
-                        await self.highrise.chat("Invalid command. Usage: /telemod @{username}.")
+                        await self.highrise.chat("Invalid command. Usage: /mod @{username}.")
                         return
 
                     target_username = parts[1]
