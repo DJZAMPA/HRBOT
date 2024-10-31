@@ -641,7 +641,7 @@ class xenoichi(BaseBot):
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-        elif message.startswith("/stop-emote"):
+        elif message.startswith("/stop"):
             # Stop the emote loop for the player
             try:
                 if self.active_emote_loops[user.id]:
